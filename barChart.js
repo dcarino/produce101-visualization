@@ -1,10 +1,10 @@
-var width = 420,
-	barHeight = 20;
+var width = 420, //Width of chart
+	barHeight = 20; //Height (or Thickness) of bar
 
 var x = d3.scale.linear()
 	.range([0, width]);
 
-var chart = d3.select(".chart")
+var chart = d3.select(".chart") 
 	.attr("width", width)
 
 d3.csv("data/trainees.csv", type, function(error, data) {
@@ -12,12 +12,13 @@ d3.csv("data/trainees.csv", type, function(error, data) {
 		return d.Points;}
 	)]);
 
-	chart.attr("height", barHeight * data.length);
+	chart.attr("height", barHeight * data.length); //Set the height of the chart to sum of the barHeights
 
-	var bar = chart.selectAll("g")
-		.data(data)
-	    .enter().append("g")
-	    .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
+	var bar = chart.selectAll("g") //g is a group of SVG elements
+		.data(data) //join data to the selection
+	    .enter().append("g") //Initiates missing elements
+	    .attr("transform", function(d, i) { 
+	    	return "translate(0," + i * barHeight + ")"; });
 
 	bar.append("rect")
 	    .attr("width", function(d) { return x(d.Points); })
@@ -28,6 +29,14 @@ d3.csv("data/trainees.csv", type, function(error, data) {
 	    .attr("y", barHeight / 2)
 	    .attr("dy", ".35em")
 	    .text(function(d) { return d.Points; });
+
+	bar.append("text")
+	    .attr("x", 70)
+	    .attr("y", barHeight / 2)
+	    .attr("dy", ".35em")
+	    .text(function(d) { 
+	    	return d.Name; })
+	    .attr("text-anchor", "start");
 });
 
 function type(d) {
