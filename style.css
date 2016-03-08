@@ -2,8 +2,18 @@
 	  fill: steelblue;
 	}
 
-	.chart text {
-	  fill: white;
-	  font: 10px sans-serif;
-	  text-anchor: end;
-	}
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+
+#barName{
+	fill: ;
+	text-anchor: start;
+}
+
+body{
+	font-family: "calibri";
+	text-align: center;
+}

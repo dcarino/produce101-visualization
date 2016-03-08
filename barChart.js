@@ -1,4 +1,4 @@
-var width = 420, //Width of chart
+var width = 1500, //Width of chart
 	barHeight = 20; //Height (or Thickness) of bar
 
 var x = d3.scale.linear()
@@ -31,7 +31,8 @@ d3.csv("data/trainees.csv", type, function(error, data) {
 	    .text(function(d) { return d.Points; });
 
 	bar.append("text")
-	    .attr("x", 70)
+		.attr("id","barName")
+	    .attr("x", 3)
 	    .attr("y", barHeight / 2)
 	    .attr("dy", ".35em")
 	    .text(function(d) { 
