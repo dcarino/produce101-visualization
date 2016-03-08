@@ -3,9 +3,21 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css"> 
 	<script src="js/d3/d3.min.js" charset="utf-8"></script>
+	<script>
+		function resize() {
+		/* Find the new window dimensions */
+			var respWidth = parseInt(d3.select("#graph").style("width")),
+			respHeight = parseInt(d3.select("#graph").style("height"));
+
+			chart.attr("width",respWidth);
+		}
+
+	d3.select(window).on('resize', resize);
+
+	</script> 
 </head>
 <body>
-	<h1>Produce101 Visualization!</h1>
-	<svg class="chart"></svg>
-	<script src="barChart.js"></script> 
+	<h1>Produce101 Visualization</h1>
+	<svg id="graph" class="chart"></svg>
+	<script src="js/barChart.js"></script> 
 </body>
