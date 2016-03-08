@@ -18,6 +18,9 @@
 
 var data = [4, 8, 15, 16, 23, 42];
 
+
+//var data = d3.csv("data/trainees.csv");
+
 var width = 420,
     barHeight = 20;
 
@@ -27,7 +30,7 @@ var x = d3.scale.linear()
 
 var chart = d3.select(".chart")
     .attr("width", width)
-    .attr("height", barHeight * data.length);
+    .attr("height", barHeight * data["Ep 5 points"]);
 
 var bar = chart.selectAll("g")
     .data(data)
