@@ -1,5 +1,5 @@
-var width = 1500, //Width of chart
-	barHeight = 20; //Height (or Thickness) of bar
+var width = parseInt(d3.select("body").style("width")), //Width of chart
+	barHeight = parseInt(d3.select("body").style("height"))/7; //Height (or Thickness) of bar
 
 var x = d3.scale.linear()
 	.range([0, width]);
