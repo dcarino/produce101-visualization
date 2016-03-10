@@ -3,21 +3,18 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css"> 
 	<script src="js/d3/d3.min.js" charset="utf-8"></script>
-	<script>
-		function resize() {
-		/* Find the new window dimensions */
-			var respWidth = parseInt(d3.select("#graph").style("width")),
-			respHeight = parseInt(d3.select("#graph").style("height"));
-
-			chart.attr("width",respWidth);
-		}
-
-	d3.select(window).on('resize', resize);
-
-	</script> 
+	<script type="text/javascript" src="js/updateData.js"></script>
+	<script type="text/javascript" src="js/resize.js"></script>
+	<script>d3.select(window).on('resize', resize);</script> 
 </head>
 <body>
 	<h1>Produce101 Visualization</h1>
+	<div id="option">
+    <input name="updateButton" 
+           type="button" 
+           value="Update" 
+           onclick="updateData();" />
+</div>
 	<svg id="graph" class="chart"></svg>
-	<script src="js/barChart.js"></script> 
+	<script type="text/javascript" src="js/barChart.js"></script> 
 </body>
